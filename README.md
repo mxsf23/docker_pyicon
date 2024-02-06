@@ -10,6 +10,7 @@ get_favico.py -u URL
 ## Dockerize it
 
 Dockerfile - simple file for building docker image of this app.
+
 Dockerfile2 - multistage variant of docker image.
 
 Final images have almost the same size. 
