@@ -1,0 +1,13 @@
+FROM python:3.8.18-slim as builder
+WORKDIR /app
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --wheel-dir /app/wheels -r requirements.txt
+
+FROM python:3.8.18-slim
+WORKDIR /app
+COPY --from=builder /app/wheels /app/wheels
+COPY --from=builder /app/requirements.txt .
+COPY get_favico.py .
+RUN pip install --no-cache /app/wheels/*
+ENTRYPOINT [ "python", "get_favico.py","-u"]
+CMD ["https://grafana.com"]
