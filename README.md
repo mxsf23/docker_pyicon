@@ -2,7 +2,7 @@
 
 ## Description
 
-Py scripts simply fetches favicon file from given url.
+Py script simply fetches favicon file from given url.
 
 ``````
 get_favico.py -u URL
